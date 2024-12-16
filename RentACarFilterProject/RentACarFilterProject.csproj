@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\CQRS\Commands\LocationCommands\" />
+    <Folder Include="Features\CQRS\Handlers\BrandHandlers\" />
+    <Folder Include="Features\CQRS\Handlers\LocationHandlers\" />
+    <Folder Include="Features\CQRS\Queries\BrandQueries\" />
+    <Folder Include="Features\CQRS\Queries\LocationQueries\" />
+    <Folder Include="Features\CQRS\Results\BrandResults\" />
+    <Folder Include="Features\CQRS\Results\LocationResults\" />
+    <Folder Include="Features\Mediator\Commands\CarCommands\" />
+    <Folder Include="Features\Mediator\Commands\ScheduleCommands\" />
+    <Folder Include="Features\Mediator\Handlers\CarHandlers\" />
+    <Folder Include="Features\Mediator\Handlers\ScheduleHandlers\" />
+    <Folder Include="Features\Mediator\Queries\CarQueries\" />
+    <Folder Include="Features\Mediator\Queries\ScheduleQueries\" />
+    <Folder Include="Features\Mediator\Results\CarResults\" />
+    <Folder Include="Features\Mediator\Results\ScheduleResults\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
