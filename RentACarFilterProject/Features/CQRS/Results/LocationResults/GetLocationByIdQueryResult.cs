@@ -2,5 +2,7 @@
 {
     public class GetLocationByIdQueryResult
     {
+        public int LocationId { get; set; }
+        public string Name { get; set; }
     }
 }

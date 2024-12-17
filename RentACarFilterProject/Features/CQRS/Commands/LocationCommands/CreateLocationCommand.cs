@@ -2,5 +2,6 @@
 {
     public class CreateLocationCommand
     {
+        public string Name { get; set; }
     }
 }
