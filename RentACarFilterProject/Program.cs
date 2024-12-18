@@ -1,4 +1,5 @@
 using RentACarFilterProject.DAL.Context;
+using RentACarFilterProject.DAL.Entities;
 using RentACarFilterProject.Features.CQRS.Handlers.BrandHandlers;
 using RentACarFilterProject.Features.CQRS.Handlers.LocationHandlers;
 
@@ -18,7 +19,8 @@ builder.Services.AddScoped<UpdateLocationCommandHandler>();
 builder.Services.AddScoped<DeleteLocationCommandHandler>();
 builder.Services.AddScoped<GetLocationByIdQueryHandler>();
 builder.Services.AddScoped<GetLocationQueryHandler>();
-
+builder.Services.AddIdentity<AppUser, AppRole>()
+    .AddEntityFrameworkStores<RentACarFilterContext>();
 
 
 var app = builder.Build();
@@ -35,7 +37,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

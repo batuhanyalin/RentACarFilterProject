@@ -1,0 +1,37 @@
+﻿@{
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+@await Component.InvokeAsync("_UILayoutHeadComponentPartial")
+<body>
+    <div class="site-wrap" id="home-section">
+        <div class="site-mobile-menu site-navbar-target">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        @await Component.InvokeAsync("_UILayoutNavBarComponentPartial")
+        @RenderBody()
+        <div class="site-section bg-primary py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-7 mb-4 mb-md-0">
+                        <h2 class="mb-0 text-white">Konforlu ve süratli bir araca mı ihtiyacınız var?</h2>
+                        <p class="mb-0 opa-7">Aradığınız özelliklere göre size en uygun araçlarımız arasından en uygun fiyatlı araçları kirayalabilirsiniz.</p>
+                    </div>
+                    <div class="col-lg-5 text-md-right">
+                        <a href="#" class="btn btn-primary btn-white">Hemen Araç Kirala</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+    </div>
+    @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+</body>
+</html>
+

@@ -24,7 +24,33 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\carrentals-master\.DS_Store" />
+    <None Include="wwwroot\carrentals-master\css\.DS_Store" />
+    <None Include="wwwroot\carrentals-master\fonts\.DS_Store" />
+    <None Include="wwwroot\carrentals-master\images\.DS_Store" />
+    <None Include="wwwroot\carrentals-master\scss\.DS_Store" />
+    <None Include="wwwroot\carrentals-master\scss\bootstrap\.DS_Store" />
+    <None Include="wwwroot\login-form-11\.DS_Store" />
+    <None Include="wwwroot\login-form-11\css\.DS_Store" />
+    <None Include="wwwroot\login-form-11\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\login-form-11\css\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\login-form-11\fonts\.DS_Store" />
+    <None Include="wwwroot\login-form-11\images\.DS_Store" />
+    <None Include="wwwroot\login-form-11\js\.DS_Store" />
+    <None Include="wwwroot\login-form-11\scss\.DS_Store" />
+    <None Include="wwwroot\login-form-11\scss\bootstrap\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\css\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\css\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\fonts\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\images\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\js\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\scss\.DS_Store" />
+    <None Include="wwwroot\sidebar-02\scss\bootstrap\.DS_Store" />
   </ItemGroup>
 
 </Project>
