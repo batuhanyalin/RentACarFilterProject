@@ -1,3 +1,5 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using RentACarFilterProject.DAL.Context;
 using RentACarFilterProject.DAL.Entities;
 using RentACarFilterProject.Features.CQRS.Handlers.BrandHandlers;
@@ -21,6 +23,23 @@ builder.Services.AddScoped<GetLocationByIdQueryHandler>();
 builder.Services.AddScoped<GetLocationQueryHandler>();
 builder.Services.AddIdentity<AppUser, AppRole>()
     .AddEntityFrameworkStores<RentACarFilterContext>();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+	options.AccessDeniedPath = "/error/error403";
+	options.LoginPath = "/Login/Index";
+	options.LogoutPath = "/Login/LogOut";
+});
+
+
+//Proje seviyesinde authentication iþlemi
+builder.Services.AddMvc(config =>
+{
+	var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+	config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+
 
 
 var app = builder.Build();

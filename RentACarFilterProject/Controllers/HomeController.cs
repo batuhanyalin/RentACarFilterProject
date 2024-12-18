@@ -1,10 +1,12 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RentACarFilterProject.Models;
 using System.Diagnostics;
 
 namespace RentACarFilterProject.Controllers
 {
-    public class HomeController : Controller
+	[AllowAnonymous]
+	public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
