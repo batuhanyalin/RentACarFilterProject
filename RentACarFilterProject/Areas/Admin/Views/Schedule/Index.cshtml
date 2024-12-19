@@ -1,0 +1,56 @@
+﻿@model List<GetScheduleQueryResult>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<div class="alert alert-info">
+    <div class="row">
+        <div class="col col-md-2">
+            <h5>Rezervasyon Listesi</h5>
+        </div>
+        <div class="col">
+            <h6><a href="/Admin/Schedule/CreateSchedule" class="btn btn-primary">Yeni Rezervasyon</a></h6>
+        </div>      
+    </div>
+</div>
+<div style="font-size:small" class="row">
+    <table class="table table-bordered table-hover table-light">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Görsel</th>
+                <th>Araç</th>
+                <th>Alış Lokasyonu</th>
+                <th>İade Lokasyonu</th>
+                <th>Alış Tarihi</th>
+                <th>İade Tarihi</th>
+                <th>Durum</th>
+                <th>Aksiyon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td><img src="@item.CarImage" height="100" width="auto" /></td>
+                    <td>@item.CarName</td>
+                    <td>@item.PickUpLocationName</td>
+                    <td>@item.DropOffLocationName</td>
+                    <td>@item.PickUpDate.ToString("dd.MM.yyy")</td>
+                    <td>@item.DropOffDate.ToString("dd.MM.yyy")</td>
+                    <td>@item.ReservationStatus</td>
+                    <td >
+                        <a style="font-size:small" href="/Admin/Schedule/UpdateSchedule/@item.ScheduleId" class="btn btn-warning"><i class="fas fa-undo"></i> Güncelle</a>
+                        <a style="font-size:small" href="/Admin/Schedule/DeleteSchedule/@item.ScheduleId" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

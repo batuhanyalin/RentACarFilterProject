@@ -1,6 +1,9 @@
-﻿namespace RentACarFilterProject.Features.Mediator.Queries.ScheduleQueries
+﻿using MediatR;
+using RentACarFilterProject.Features.Mediator.Results.ScheduleResults;
+
+namespace RentACarFilterProject.Features.Mediator.Queries.ScheduleQueries
 {
-    public class GetScheduleQuery
+    public class GetScheduleQuery:IRequest<List<GetScheduleQueryResult>>
     {
     }
 }

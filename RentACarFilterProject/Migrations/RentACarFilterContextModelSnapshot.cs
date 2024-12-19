@@ -260,6 +260,9 @@ namespace RentACarFilterProject.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Doors")
+                        .HasColumnType("int");
+
                     b.Property<string>("Fuel")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

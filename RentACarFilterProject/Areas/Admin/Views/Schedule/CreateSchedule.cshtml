@@ -1,0 +1,54 @@
+﻿@model CreateScheduleCommand
+@{
+    ViewData["Title"] = "CreateSchedule";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="alert alert-info">
+    <div class="row">
+        <div class="col col-md-2">
+            <h4><a href="/Admin/Schedule/Index" class="btn btn-primary">Listeye Dön</a></h4>
+        </div>
+        <div class="col">
+            <h2>Yeni Rezervasyon Oluştur</h2>
+        </div>
+    </div>
+</div>
+<form method="post">
+    <div class="alert alert-success">
+        <div class="row">
+            <div class="col col-md-4">
+                <div class="form-group">
+                    <label class="form-label">Araç</label>
+                    <select class="form-control" asp-for="CarId" asp-items="@ViewBag.carList"></select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Alış Konumu</label>
+                    <select class="form-control" asp-for="PicUpLocationId" asp-items="@ViewBag.locationList"></select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">İade Konumu</label>
+                    <select class="form-control" asp-for="DropOffLocationId" asp-items="@ViewBag.locationList"></select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Alış Tarihi</label>
+                    <input class="form-control" asp-for=PickUpDate type="date" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">İade Tarihi</label>
+                    <input class="form-control" asp-for=DropOffDate type="date" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Durum</label>
+                    <input class="form-control" asp-for=ReservationStatus type="text" />
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success"><i class="fas fa-save"></i> Kaydet</button>
+            </div>
+        </div>
+    </div>
+</form>

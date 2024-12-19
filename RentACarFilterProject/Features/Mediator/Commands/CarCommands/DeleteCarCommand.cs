@@ -1,6 +1,14 @@
-﻿namespace RentACarFilterProject.Features.CQRS.Commands.CarCommands
+﻿using MediatR;
+
+namespace RentACarFilterProject.Features.Mediator.Commands.CarCommands
 {
-    public class DeleteCarCommand
+    public class DeleteCarCommand:IRequest
     {
+        public int Id { get; set; }
+
+        public DeleteCarCommand(int id)
+        {
+            Id = id;
+        }
     }
 }

@@ -1,14 +1,25 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RentACarFilterProject.Features.Mediator.Queries.CarQueries;
 
 namespace RentACarFilterProject.Controllers
 {
 	[AllowAnonymous]
 	public class CarController : Controller
     {
-        public IActionResult Index()
+        private readonly IMediator _mediator;
+
+        public CarController(IMediator mediator)
         {
-            return View();
+            _mediator = mediator;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var values = await _mediator.Send(new GetCarQuery());
+            return View(values);
         }
     }
 }

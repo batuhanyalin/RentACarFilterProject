@@ -1,6 +1,9 @@
-﻿namespace RentACarFilterProject.Features.Mediator.Queries.CarQueries
+﻿using MediatR;
+using RentACarFilterProject.Features.Mediator.Results.CarResults;
+
+namespace RentACarFilterProject.Features.Mediator.Queries.CarQueries
 {
-    public class GetCarQuery
+    public class GetCarQuery:IRequest<List<GetCarQueryResult>>
     {
     }
 }

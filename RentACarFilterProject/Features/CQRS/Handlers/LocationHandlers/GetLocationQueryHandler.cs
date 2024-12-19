@@ -15,7 +15,9 @@ namespace RentACarFilterProject.Features.CQRS.Handlers.LocationHandlers
         {
             var values = _context.Locations.Select(x => new GetLocationQueryResult
             {
-                Name = x.Name
+                Name = x.Name,
+                LocationId=x.LocationId,
+
             });
             return values.ToList();
         }

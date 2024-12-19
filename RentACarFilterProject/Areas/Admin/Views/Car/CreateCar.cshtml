@@ -1,0 +1,79 @@
+﻿@model CreateCarCommand
+@{
+    ViewData["Title"] = "CreateCar";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="alert alert-info">
+    <div class="row">
+        <div class="col col-md-2">
+            <h4><a href="/Admin/Car/Index" class="btn btn-primary">Listeye Dön</a></h4>
+        </div>
+        <div class="col">
+            <h2>Yeni Araç Oluştur</h2>
+        </div>
+    </div>
+</div>
+<form method="post">
+    <div class="alert alert-success">
+        <div class="row">
+            <div class="col col-md-4">
+                <div class="form-group">
+                    <label class="form-label">Marka</label>
+                    <select class="form-control" asp-for="BrandId" asp-items="@ViewBag.brandList"></select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Model</label>
+                    <input class="form-control" asp-for=Model type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Yıl</label>
+                    <input class="form-control" asp-for=Year type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Vites</label>
+                    <input class="form-control" asp-for=Transmission type="text" />
+                </div>
+
+            </div>
+            <div class="col col-md-4">
+                <div class="form-group">
+                    <label class="form-label">Yakıt Türü</label>
+                    <input class="form-control" asp-for=Fuel type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Koltuk</label>
+                    <input class="form-control" asp-for=Seat type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Kapı</label>
+                    <input class="form-control" asp-for=Doors type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Fiyat</label>
+                    <input class="form-control" asp-for=Price type="text" />
+                </div>
+            </div>
+            <div class="col col-md-4">
+                <div class="form-group">
+                    <label class="form-label">Bagaj Litre</label>
+                    <input class="form-control" asp-for=LuggageCapacity type="text" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Lokasyon</label>
+                    <select class="form-control" asp-for="LocationId" asp-items="@ViewBag.locationList"></select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Görsel</label>
+                    <input class="form-control" asp-for=ImageUrl type="text" />
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success"><i class="fas fa-save"></i> Kaydet</button>
+            </div>
+        </div>
+    </div>
+</form>

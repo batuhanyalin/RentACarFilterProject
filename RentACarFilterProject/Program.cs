@@ -4,6 +4,7 @@ using RentACarFilterProject.DAL.Context;
 using RentACarFilterProject.DAL.Entities;
 using RentACarFilterProject.Features.CQRS.Handlers.BrandHandlers;
 using RentACarFilterProject.Features.CQRS.Handlers.LocationHandlers;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,9 @@ builder.Services.AddScoped<UpdateLocationCommandHandler>();
 builder.Services.AddScoped<DeleteLocationCommandHandler>();
 builder.Services.AddScoped<GetLocationByIdQueryHandler>();
 builder.Services.AddScoped<GetLocationQueryHandler>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
 builder.Services.AddIdentity<AppUser, AppRole>()
     .AddEntityFrameworkStores<RentACarFilterContext>();
 
@@ -29,6 +33,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 	options.AccessDeniedPath = "/error/error403";
 	options.LoginPath = "/Login/Index";
 	options.LogoutPath = "/Login/LogOut";
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
 });
 
 

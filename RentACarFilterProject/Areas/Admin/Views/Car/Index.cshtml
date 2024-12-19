@@ -1,8 +1,64 @@
-﻿
+﻿@model List<GetCarQueryResult>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
 }
 
-<h1>Index</h1>
+<div class="alert alert-info">
+    <div class="row">
+        <div class="col col-md-2">
+            <h5>Araç Listesi</h5>
+        </div>
+        <div class="col">
+            <h6><a href="/Admin/Car/CreateCar" class="btn btn-primary">Yeni Araç</a></h6>
+        </div>      
+    </div>
+</div>
+<div style="font-size:small" class="row">
+    <table class="table table-bordered table-hover table-light">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Görsel</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Yıl</th>
+                <th>Yakıt Türü</th>
+                <th>Vites Türü</th>
+                <th>Koltuk</th>
+                <th>Kapı</th>
+                <th>Bagaj Litre</th>
+                <th>Fiyat</th>
+                <th>Lokasyon</th>
+                <th>Aksiyon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td><img src="@item.ImageUrl" height="100" width="auto" /></td>
+                    <td>@item.BrandName</td>
+                    <td>@item.Model</td>
+                    <td>@item.Year</td>
+                    <td>@item.Fuel</td>
+                    <td>@item.Transmission</td>
+                    <td>@item.Seat</td>
+                    <td>@item.Doors</td>
+                    <td>@item.LuggageCapacity</td>
+                    <td>@item.Price</td>
+                    <td>@item.LocationName</td>
+                    <td >
+                        <a style="font-size:small" href="/Admin/Car/UpdateCar/@item.CarId" class="btn btn-warning"><i class="fas fa-undo"></i> Güncelle</a>
+                        <a style="font-size:small" href="/Admin/Car/DeleteCar/@item.CarId" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
 

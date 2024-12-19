@@ -15,7 +15,8 @@ namespace RentACarFilterProject.Features.CQRS.Handlers.BrandHandlers
         {
             var values = _context.Brands.Select(x => new GetBrandQueryResult
             {
-                Name = x.Name
+                Name = x.Name,
+                BrandId = x.BrandId,
             });
             return values.ToList();
         }

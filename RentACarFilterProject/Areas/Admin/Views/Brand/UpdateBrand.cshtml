@@ -1,0 +1,35 @@
+﻿@model GetBrandByIdQueryResult
+@{
+    ViewData["Title"] = "UpdateBrand";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="alert alert-info">
+    <div class="row">
+        <div class="col col-md-2">
+            <h4><a href="/Admin/Brand/Index" class="btn btn-primary">Listeye Dön</a></h4>
+        </div>
+        <div class="col">
+            <h2>Marka Güncelle</h2>
+        </div>
+
+    </div>
+</div>
+
+<form method="post">
+    <div class="alert alert-warning">
+        <div class="row">
+            <input type="hidden" asp-for=BrandId />
+            <div class="col col-md-4">
+                <label class="form-label">Marka Adı</label>
+                <input class="form-control" asp-for=Name type="text" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-warning"><i class="fas fa-undo-alt"></i> Güncelle</button>
+            </div>
+        </div>
+    </div>
+</form>
