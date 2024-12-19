@@ -1,8 +1,12 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RentACarFilterProject.Features.Mediator.Queries.CarQueries;
+using RentACarFilterProject.Models.CarModels;
 
 namespace RentACarFilterProject.Controllers
 {
+    [AllowAnonymous]
     public class CarFilterController : Controller
     {
         private readonly IMediator _mediator;
@@ -11,9 +15,11 @@ namespace RentACarFilterProject.Controllers
         {
             _mediator = mediator;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(CarFilterViewModel model)
         {
-            return View();
+
+            var values = await _mediator.Send(new GetCarFilterQuery(model.PickUpLocationId, model.DropOffLocationId, model.PickUpDate, model.DropOffDate));
+            return View(values);
         }
     }
 }

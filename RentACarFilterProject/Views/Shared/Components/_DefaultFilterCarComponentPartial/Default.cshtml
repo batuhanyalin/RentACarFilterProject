@@ -1,8 +1,9 @@
-﻿<div class="hero" style="background-image: url('/carrentals-master/images/hero_1_a.jpg');">
+﻿@model CarFilterViewModel
+<div class="hero" style="background-image: url('/carrentals-master/images/hero_1_a.jpg');">
 
     <div class="container">
         <div class="row align-items-center justify-content-center">
-            <div class="col-lg-10">
+            <div class="col-lg-12">
 
                 <div class="row mb-5">
                     <div class="col-lg-7 intro">
@@ -10,37 +11,34 @@
                     </div>
                 </div>
 
-                <form class="trip-form">
-
+                <form method="post" asp-action="Index" asp-controller="CarFilter" class="trip-form">
                     <div class="row align-items-center">
-
-                        <div class="mb-3 mb-md-0 col-md-3">
-                            <select name="" id="" class="custom-select form-control">
-                                <option value="">Lokasyon Seçin</option>
-                                <option value="">Ferrari</option>
-                                <option value="">Toyota</option>
-                                <option value="">Ford</option>
-                                <option value="">Lamborghini</option>
+                        <div style="font-size:medium" class="mb-2 mb-md-0 col-md-2">
+                            <select asp-for="PickUpLocationId" asp-items=@ViewBag.locationList class="custom-select form-control">
+                                <option value="" disabled selected>Alış Lokasyonu</option>
                             </select>
                         </div>
-                        <div class="mb-3 mb-md-0 col-md-3">
+                        <div style="font-size:medium" class="mb-2 mb-md-0 col-md-2">
+                            <select asp-for="DropOffLocationId" asp-items=@ViewBag.locationList class="custom-select form-control">
+                                <option value="" disabled selected>İade Lokasyonu</option>
+                            </select>
+                        </div>
+                        <div class="mb-2 mb-md-0 col-md-3">
                             <div class="form-control-wrap">
-                                <input type="text" id="cf-3" placeholder="Alım Tarihi" class="form-control datepicker px-3">
-                                <span class="icon icon-date_range"></span>
-
+                                <input type="date" asp-for="PickUpDate" placeholder="Alım Tarihi" class="form-control">
+                              
                             </div>
                         </div>
-                        <div class="mb-3 mb-md-0 col-md-3">
+                        <div class="mb-2 mb-md-0 col-md-3">
                             <div class="form-control-wrap">
-                                <input type="text" id="cf-4" placeholder="İade Tarihi" class="form-control datepicker px-3">
-                                <span class="icon icon-date_range"></span>
+                                <input type="date" asp-for="DropOffDate" placeholder="İade Tarihi" class="form-control">
+                               
                             </div>
                         </div>
-                        <div class="mb-3 mb-md-0 col-md-3">
-                            <input type="submit" value="Uygun Araçları Listele" class="btn btn-primary btn-block py-3">
+                        <div class="mb-2 mb-md-0 col-md-2">
+                            <input type="submit" value="Araçları Listele" class="btn btn-primary btn-block py-3">
                         </div>
                     </div>
-
                 </form>
 
             </div>
